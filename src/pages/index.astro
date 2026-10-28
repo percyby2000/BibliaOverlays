@@ -1,0 +1,206 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es" class="dark h-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bible Overlay Studio - Software profesional para buscar y proyectar textos bíblicos en OBS Studio" />
+    <title>Bible Overlay Studio | Emisión de Textos Bíblicos en OBS Studio</title>
+    <link rel="icon" type="image/svg+xml" href="/1.svg" />
+  </head>
+  <body class="studio-body min-h-screen bg-background text-foreground flex flex-col justify-between selection:bg-primary selection:text-primary-foreground">
+    <!-- Header Navigation -->
+    <header data-reveal="down" class="border-b border-border bg-card/80 backdrop-blur-md px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center shadow-lg flex-shrink-0">
+          <img src="3.svg" alt="">
+        </div>
+        <div>
+          <span class="font-extrabold tracking-wider text-base bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+            BIBLIA OVERLAY
+          </span>
+
+
+        </div>
+      </div>
+      <a
+        href="/docmunentacion"
+        class="px-3 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-semibold hover:bg-primary/20 transition-all"
+      >
+        DOCUMENTACIÓN
+      </a>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="max-w-5xl mx-auto px-6 py-16 flex-1 flex flex-col items-center justify-center text-center">
+      <div data-reveal="up" class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-6">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        Úsalo gratis en tu transmisión en vivo
+      </div>
+
+      <h1 data-reveal="up" class="reveal-delay-1 text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+        Proyección Bíblica en Vivo <br />
+        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">
+          Ultra Fluida y Transparente
+        </span>
+      </h1>
+
+      <p data-reveal="up" class="reveal-delay-2 max-w-2xl text-muted-foreground text-base sm:text-lg mb-10 leading-relaxed">
+        Plataforma  para operadores de iglesias y transmisiones en vivo. Busca versículos al instante, personaliza estilos visuales en tiempo real y proyéctalos en OBS Studio mediante Browser Source sin recargar la página.
+      </p>
+
+      <!-- Action Buttons -->
+      <div data-reveal="up" class="reveal-delay-3 flex flex-wrap items-center justify-center gap-4 mb-16">
+        <a
+          href="/control"
+          class="px-6 py-3.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm shadow-xl transition-all flex items-center gap-2 hover:scale-[1.02]"
+        >
+          <svg class="w-5 h-5" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+          </svg>
+          <span>Ir al Panel de Operador (/control)</span>
+        </a>
+
+        <a
+          href="/overlay/transmision"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-6 py-3.5 rounded-xl bg-card hover:bg-studio-hover border border-border text-foreground font-semibold text-sm transition-all flex items-center gap-2"
+        >
+          <svg class="w-5 h-5 text-emerald-400" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+          <span>Ver Overlay de Transmisión (/overlay/transmision)</span>
+        </a>
+      </div>
+
+      <div data-reveal="up" class="reveal-delay-4 flex items-center gap-2 text-xs text-muted-foreground mb-16">
+        <img src="/portada.png" alt="Logo"> 
+
+      </div>  
+
+      <!-- Feature Grid -->
+      <div data-reveal="up" class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left w-full">
+        <div class="reveal-card p-6 rounded-2xl bg-card/60 border border-border backdrop-blur-sm">
+          <div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-4 font-bold">
+            01
+          </div>
+          <h3 class="text-base font-bold text-foreground mb-2">Buscador Bíblico Veloz</h3>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Escribe referencias rápidas como <code class="text-primary font-mono">Juan 3:16</code> o navega por los 66 libros, capítulos y versículos para proyectar al aire.
+          </p>
+        </div>
+
+        <div class="reveal-card p-6 rounded-2xl bg-card/60 border border-border backdrop-blur-sm">
+          <div class="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-4 font-bold">
+            02
+          </div>
+          <h3 class="text-base font-bold text-foreground mb-2">Fondo 100% Transparente</h3>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Diseñado exclusivamente para fuentes de navegador de OBS Studio a 1920 × 1080. Sin barras, menús ni fondos opacos no deseados.
+          </p>
+        </div>
+
+        <div class="reveal-card p-6 rounded-2xl bg-card/60 border border-border backdrop-blur-sm">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4 font-bold">
+            03
+          </div>
+          <h3 class="text-base font-bold text-foreground mb-2">Sincronización Dual</h3>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            Supabase Realtime en producción y BroadcastChannel local en desarrollo, permitiendo probar entre pestañas sin necesidad de credenciales.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer data-reveal="up" class="border-t border-border py-6 text-center text-xs text-muted-foreground">
+      Desarrollado con ❤️ por<a href="https://github.com/percyby2000" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer"> PERCY CN
+      </a> 
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition:
+      opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-reveal='down'] {
+    transform: translate3d(0, -18px, 0);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .reveal-delay-1 { transition-delay: 80ms; }
+  .reveal-delay-2 { transition-delay: 160ms; }
+  .reveal-delay-3 { transition-delay: 240ms; }
+  .reveal-delay-4 { transition-delay: 320ms; }
+
+  .reveal-card {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.98);
+    transition:
+      opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 250ms ease,
+      background-color 250ms ease;
+  }
+
+  [data-reveal].is-visible .reveal-card {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  [data-reveal].is-visible .reveal-card:nth-child(2) { transition-delay: 100ms; }
+  [data-reveal].is-visible .reveal-card:nth-child(3) { transition-delay: 200ms; }
+  [data-reveal].is-visible .reveal-card:hover {
+    transform: translate3d(0, -5px, 0) scale(1.01);
+    border-color: color-mix(in srgb, var(--primary) 55%, var(--border));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) { scroll-behavior: auto; }
+    [data-reveal],
+    .reveal-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const revealItems = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -36px' }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  }
+</script>

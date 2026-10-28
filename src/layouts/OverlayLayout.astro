@@ -1,0 +1,34 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  overlayId: string;
+}
+
+const { title = 'Bible Overlay - OBS Studio', overlayId } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="h-full w-full bg-transparent">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <style is:global>
+      html, body {
+        background-color: transparent !important;
+        background: transparent !important;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="obs-overlay-body h-full w-full bg-transparent overflow-hidden">
+    <slot />
+  </body>
+</html>

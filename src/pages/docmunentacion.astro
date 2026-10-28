@@ -1,0 +1,195 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Documentación de Biblia Overlay: uso, conexión con OBS Studio y versiones bíblicas." />
+    <title>Documentación | Biblia Overlay</title>
+    <link rel="icon" type="image/svg+xml" href="/1.svg" />
+  </head>
+  <body class="studio-body min-h-screen bg-background text-foreground">
+    <header class="sticky top-0 z-30 border-b border-border bg-card/85 px-4 py-3 backdrop-blur-md sm:px-8">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4">
+        <a href="/" class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/20">
+            <img src="/3.svg" alt="" class="h-7 w-7" />
+          </div>
+          <span class="font-extrabold tracking-wider text-sm text-foreground">BIBLIA OVERLAY</span>
+        </a>
+        <a href="/control" class="rounded-lg bg-primary px-3 py-2 text-xs font-bold text-primary-foreground transition hover:bg-primary/90">
+          Abrir panel
+        </a>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-10 sm:px-8 sm:py-16">
+      <section class="mb-12 max-w-3xl">
+        <span class="mb-4 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+          GUÍA DE USO
+        </span>
+        <h1 class="mb-5 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
+          Documentación de <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Biblia Overlay</span>
+        </h1>
+        <p class="text-base leading-relaxed text-muted-foreground sm:text-lg">
+          Biblia Overlay es un panel para buscar pasajes bíblicos, diseñar una composición visual
+          y mostrarla en una transmisión mediante una fuente de navegador de OBS Studio.
+        </p>
+      </section>
+
+      <div class="grid gap-8 lg:grid-cols-[220px_1fr]">
+        <nav class="h-fit rounded-2xl border border-border bg-card/60 p-4 lg:sticky lg:top-24">
+          <p class="mb-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Contenido</p>
+          <div class="space-y-2 text-sm">
+            <a href="#introduccion" class="block text-muted-foreground hover:text-primary">Introducción</a>
+            <a href="#primeros-pasos" class="block text-muted-foreground hover:text-primary">Primeros pasos</a>
+            <a href="#canales" class="block text-muted-foreground hover:text-primary">Canales</a>
+            <a href="#obs" class="block text-muted-foreground hover:text-primary">Conectar con OBS</a>
+            <a href="#api" class="block text-muted-foreground hover:text-primary">API bíblica</a>
+            <a href="#versiones" class="block text-muted-foreground hover:text-primary">Versiones</a>
+            <a href="#problemas" class="block text-muted-foreground hover:text-primary">Solución de problemas</a>
+          </div>
+        </nav>
+
+        <div class="space-y-8">
+          <section id="introduccion" class="doc-card">
+            <h2>1. Introducción</h2>
+            <p>
+              La aplicación separa el diseño de la operación. En el panel puedes preparar un texto,
+              ajustar su apariencia y decidir cuándo enviarlo al aire. El resultado se muestra en una
+              URL independiente, sin barras ni controles visibles para el público.
+            </p>
+            <div class="info-grid">
+              <div><strong>Transmisión</strong><span>Diseño tipo lower-third para OBS y streaming.</span></div>
+              <div><strong>Media</strong><span>Diseño grande y centrado para pantallas o proyección.</span></div>
+            </div>
+          </section>
+
+          <section id="primeros-pasos" class="doc-card">
+            <h2>2. Primeros pasos</h2>
+            <ol>
+              <li>Abre el <a href="/control">panel de operador</a>.</li>
+              <li>Elige <strong>Transmisión</strong> o <strong>Media</strong> en el selector central.</li>
+              <li>Busca un pasaje escribiendo una referencia, por ejemplo <code>Juan 3:16</code>.</li>
+              <li>Selecciona el capítulo y pulsa el número del versículo. El texto aparecerá en la vista previa.</li>
+              <li>Usa el panel de estilo para escoger fondo, fuente, tamaño, colores, posición y animación.</li>
+              <li>En la vista previa puedes arrastrar el cuadro con el mouse. En Media también tienes controles para moverlo horizontal y verticalmente.</li>
+              <li>Cuando el diseño esté listo, pulsa <strong>Proyectar en vivo</strong>.</li>
+            </ol>
+            <p class="note">Los cambios de estilo se sincronizan con el canal activo. Cada canal conserva su propia configuración.</p>
+          </section>
+
+          <section id="canales" class="doc-card">
+            <h2>3. Canales de salida</h2>
+            <p>Los dos canales tienen URLs separadas y pueden utilizarse como fuentes de navegador independientes.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Canal</th><th>Uso recomendado</th><th>URL</th></tr></thead>
+                <tbody>
+                  <tr><td>Transmisión</td><td>Overlay discreto sobre cámara o video</td><td><code>/overlay/transmision</code></td></tr>
+                  <tr><td>Media</td><td>Texto grande para pantalla o presentación</td><td><code>/overlay/presentacion</code></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="obs" class="doc-card">
+            <h2>4. Conectar con OBS Studio</h2>
+            <ol>
+              <li>En el panel, selecciona el canal que quieres usar.</li>
+              <li>Pulsa <strong>Copiar URL OBS</strong>.</li>
+              <li>Abre OBS Studio y selecciona la escena donde irá el texto.</li>
+              <li>En <strong>Fuentes</strong>, pulsa <strong>+</strong> y elige <strong>Navegador</strong>.</li>
+              <li>Asigna un nombre, por ejemplo <code>Biblia - Transmisión</code>.</li>
+              <li>Pega la URL copiada.</li>
+              <li>Configura el tamaño en <strong>1920 × 1080</strong> y activa <strong>Apagar fuente cuando no sea visible</strong> solo si necesitas ahorrar recursos.</li>
+              <li>Confirma con <strong>Aceptar</strong> y coloca la fuente por encima del video o cámara.</li>
+            </ol>
+            <div class="note">
+              <strong>Importante:</strong> la fuente debe conservar el tamaño 1920 × 1080 (relación 16:9).
+              No uses “Ajustar a pantalla” sobre una fuente previamente escalada; eso puede hacer que el texto se vea pequeño.
+            </div>
+          </section>
+
+          <section id="api" class="doc-card">
+            <h2>5. API de la Biblia</h2>
+            <p>
+              La aplicación utiliza la API pública de <strong>Bolls.life</strong> como fuente principal
+              para buscar pasajes, consultar capítulos y obtener el número real de versículos.
+            </p>
+            <div class="code-block">
+              <span>Servicio:</span> https://bolls.life<br />
+              <span>Uso:</span> búsqueda de referencias, pasajes y cantidad de versículos por capítulo
+            </div>
+            <p>
+              El selector de versículos se genera con la cantidad devuelta por la API. Así se evitan
+              números repetidos o botones que no existen en el capítulo. Si la API no responde,
+              la aplicación usa los datos locales disponibles como respaldo.
+            </p>
+            <p class="note">No necesitas introducir una clave API para usar la búsqueda normal.</p>
+          </section>
+
+          <section id="versiones" class="doc-card">
+            <h2>6. Versiones bíblicas</h2>
+            <p>
+              Las versiones disponibles se consultan desde el endpoint de versiones de la API.
+              La versión seleccionada se aplica a la búsqueda y se muestra como etiqueta junto a la referencia.
+            </p>
+            <ol>
+              <li>Abre el selector de versión en el buscador bíblico.</li>
+              <li>Escoge la traducción que necesitas.</li>
+              <li>Busca nuevamente la referencia para cargar el texto en esa versión.</li>
+              <li>Verifica la etiqueta de versión antes de proyectar.</li>
+            </ol>
+            <p class="note">La disponibilidad de una versión puede depender de la respuesta actual de la API.</p>
+          </section>
+
+          <section id="problemas" class="doc-card">
+            <h2>7. Solución de problemas</h2>
+            <div class="info-grid">
+              <div><strong>OBS muestra texto pequeño</strong><span>Comprueba que la fuente esté en 1920 × 1080 y no tenga una transformación de escala adicional.</span></div>
+              <div><strong>No aparece el fondo</strong><span>Selecciona el fondo desde el canal correcto y actualiza la fuente del navegador en OBS.</span></div>
+              <div><strong>No cambia el versículo</strong><span>Pulsa Proyectar en vivo y revisa que la fuente esté usando la URL del canal seleccionado.</span></div>
+              <div><strong>La búsqueda falla</strong><span>Comprueba la conexión a internet; la API es necesaria para obtener datos actualizados.</span></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-border py-6 text-center text-xs text-muted-foreground">
+      Biblia Overlay · Documentación
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(html) { scroll-behavior: smooth; }
+  .doc-card {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--card) 72%, transparent);
+    padding: 1.5rem;
+  }
+  .doc-card h2 { margin-bottom: 0.8rem; color: var(--foreground); font-size: 1.35rem; font-weight: 800; }
+  .doc-card p, .doc-card li { color: var(--muted-foreground); font-size: 0.9rem; line-height: 1.75; }
+  .doc-card ol { margin: 0.8rem 0 0; padding-left: 1.4rem; }
+  .doc-card li { padding-left: 0.3rem; }
+  .doc-card a { color: var(--primary); font-weight: 600; }
+  .doc-card strong { color: var(--foreground); }
+  .doc-card code, .code-block { border-radius: 0.4rem; background: var(--background); color: var(--primary); font-family: var(--font-mono); font-size: 0.78rem; padding: 0.15rem 0.35rem; }
+  .code-block { margin: 1rem 0; padding: 0.85rem 1rem; line-height: 1.8; }
+  .code-block span { color: var(--muted-foreground); }
+  .note { margin-top: 1rem; border-left: 3px solid var(--primary); border-radius: 0.25rem; background: color-mix(in srgb, var(--primary) 8%, transparent); padding: 0.7rem 0.9rem; }
+  .info-grid { display: grid; gap: 0.75rem; margin-top: 1rem; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  .info-grid > div { border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.9rem; }
+  .info-grid strong, .info-grid span { display: block; }
+  .info-grid span { margin-top: 0.25rem; color: var(--muted-foreground); font-size: 0.8rem; line-height: 1.5; }
+  .table-wrap { margin-top: 1rem; overflow-x: auto; }
+  table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 0.8rem; }
+  th, td { border-bottom: 1px solid var(--border); padding: 0.75rem; text-align: left; color: var(--muted-foreground); }
+  th { color: var(--foreground); font-weight: 700; }
+</style>
